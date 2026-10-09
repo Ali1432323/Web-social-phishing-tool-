@@ -1,0 +1,19 @@
+import subprocess
+def runcmd(cmd, verbose = False, *args, **kwargs):
+
+    process = subprocess.Popen(
+        cmd,
+        stdout = subprocess.PIPE,
+        stderr = subprocess.PIPE,
+        text = True,
+        shell = True
+    )
+    std_out, std_err = process.communicate()
+    if verbose:
+        print(std_out.strip(), std_err)
+    pass
+# print(B+"http or https : ")
+# htt = int(input(B+"Enter :"))
+# print('Website Example: https://chat.whatsapp.com/EscKKC5FsKAGIrcwLzp9l0?s=cl&p=a&mlu=4&ilr=4')
+# inp = input("Enter Website name without http or https: ")
+# runcmd("wget --random-wait -r -p robots=off -U mozilla https://chat.whatsapp.com/EscKKC5FsKAGIrcwLzp9l0?s=cl&p=a&mlu=4&ilr=4", verbose = True)
